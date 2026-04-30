@@ -70,9 +70,11 @@ async def convert_to_sticker(update: Update, context: ContextTypes.DEFAULT_TYPE)
             caption="✅ Selesai! Klik file di atas lalu pilih 'Add to Favorites'."
         )
 
-    except Exception as e:
+        except Exception as e:
         logger.error(f"Error: {e}")
-        await update.message.reply_text("❌ Maaf, terjadi kesalahan saat mengonversi video.")
+        # Ubah baris ini agar kamu tahu error spesifiknya apa
+        await update.message.reply_text(f"❌ Detail Error: {str(e)}")
+
     
     finally:
         # Bersihkan file sementara
